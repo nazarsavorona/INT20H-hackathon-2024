@@ -63,7 +63,6 @@ def get_binary_predictions(binary_model, img_paths, batch_size):
     return df
 
 
-# TODO: Implement get_detector_predictions
 def get_detector_predictions(detector_model, batch_size, binary_predictions):
     """
     Get detector predictions for a list of images
