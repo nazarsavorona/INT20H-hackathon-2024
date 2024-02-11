@@ -1,0 +1,4 @@
+path: ./datasets/pneumonia_classification
+train: images/train
+val: images/val
+test: images/test
