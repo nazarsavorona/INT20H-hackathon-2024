@@ -1,4 +1,4 @@
-path: ./datasets/pneumonia_classification
+path: ./datasets/pneumonia_classification_all
 train: images/train images/val images/test
 val: images/val
 test: images/test
