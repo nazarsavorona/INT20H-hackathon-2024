@@ -18,8 +18,6 @@ from torchvision.utils import save_image
 import matplotlib.patches as patches
 from math import ceil
 
-
-
 # --------------------------------- Preparing the data ---------------------------------
 DATA_FOLDER = "rsna-pneumonia-detection-challenge/"
 random_seed = 42
@@ -241,25 +239,25 @@ num_epochs = 20
 model = YOLO(model_name)
 
 # Training
-results = model.train(
-    data=data_file,
-    epochs=num_epochs,
-    close_mosaic=0,
-    dropout=0.1,
-    device=0,
-    optimizer="AdamW",
-    lr0=1e-3,
-    lrf=1e-2,
-    cos_lr=True,
-    amp=False,
-    warmup_epochs=1,
-    erasing=0,
-    mosaic=0,
-    hsv_h=0,
-    hsv_s=0,
-    hsv_v=0,
-    scale=0,
-    translate=0,
-)
+results = model.train(data=data_file,
+                      epochs=num_epochs,
+                      close_mosaic=0,
+                      dropout=0.1,
+                      device=0,
+                      optimizer="AdamW",
+                      lr0=1e-3,
+                      lrf=1e-2,
+                      freeze=10,
+                      cos_lr=True,
+                      amp=False,
+                      warmup_epochs=1,
+                      erasing=0,
+                      mosaic=0,
+                      hsv_h=0,
+                      hsv_s=0,
+                      hsv_v=0,
+                      scale=0,
+                      translate=0,
+                      )
 
 success = model.export(format='onnx')
